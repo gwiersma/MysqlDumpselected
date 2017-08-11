@@ -27,8 +27,6 @@ mysqlhost=[host]
 #####
  
  
-#date to append
-suffix=$(date +%Y-%m-%d)
  
  
 #run on each domain
@@ -49,7 +47,7 @@ do
 	fi
  
 	#now do the backup
-	SQLFILE=${cpath}/${sqldbs[$i]}_$suffix.sql.gz
+	SQLFILE=${cpath}/${sqldbs[$i]}.sql
  
 	mysqldump -c -h $mysqlhost --user $username --password=$password ${sqldbs[$i]} 2>error |  > $SQLFILE
  
